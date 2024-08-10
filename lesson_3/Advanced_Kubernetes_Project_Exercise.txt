@@ -1,0 +1,87 @@
+Advanced Kubernetes Project Exercise
+In this exercise, you'll create a Kubernetes (K8S) project using Flask as the backend server, 
+PostgreSQL as the database, Redis for caching, and a React application as the frontend. 
+The project will utilize various K8S components, including ConfigMaps, Secrets, 
+PersistentVolumeClaims (PVC), Namespaces, Horizontal Pod Autoscaler (HPA), and NetworkPolicies. 
+This exercise is designed to be exciting and challenging, providing you with a comprehensive learning experience.
+Project Structure
+
+1. Backend: Flask server with multiple endpoints.
+
+2. Database: PostgreSQL for persistent data storage.
+
+3. Cache: Redis for caching.
+
+4. Frontend: React application.
+
+5. K8S Components:
+   - Pods
+   - Deployments
+   - Services
+   - ConfigMaps
+   - Secrets
+   - PersistentVolumeClaims (PVC)
+   - Namespace
+   - Horizontal Pod Autoscaler (HPA)
+   - NetworkPolicies
+   
+Step-by-Step Guide
+1. Setting Up Flask Backend
+1. Create a Flask application (app.py):
+   - Set up a basic Flask server.
+   - Implement multiple endpoints for data retrieval and data addition.
+   - Integrate PostgreSQL for data storage and Redis for caching.
+2. Create a requirements.txt:
+   - Include Flask, psycopg2, and redis.
+3. Create a Dockerfile for the Flask application:
+   - Use a Python base image.
+   - Install the required dependencies.
+   - Copy the application code and run the Flask server.
+2. Setting Up PostgreSQL Database
+1. Create a postgres-init.sql:
+   - Initialize the PostgreSQL database.
+   - Create a table and insert initial data.
+3. Setting Up React Frontend
+1. Create a basic React application (use Create React App for simplicity):
+   - Set up a React application with a form to add data and a list to display data from the Flask API.
+2. Create a Dockerfile for the React application:
+   - Use a multi-stage build to build the React application and serve it using Nginx.
+4. Creating Kubernetes Manifests
+Create a k8s directory to store all K8S manifests.
+1. Namespace:
+   - Create a Namespace for the project.
+2. ConfigMap for PostgreSQL Initialization Script:
+   - Store the initialization script for PostgreSQL.
+3. Secret for PostgreSQL Password:
+   - Store the PostgreSQL password as a Kubernetes Secret.
+4. PersistentVolume and PersistentVolumeClaim for PostgreSQL:
+   - Define PersistentVolume and PersistentVolumeClaim for PostgreSQL data storage.
+5. PostgreSQL Deployment and Service:
+   - Deploy PostgreSQL and expose it as a service.
+6. Redis Deployment and Service:
+   - Deploy Redis and expose it as a service.
+7. Flask Deployment and Service:
+   - Deploy the Flask application and expose it as a service.
+   - Use environment variables to connect to PostgreSQL and Redis.
+8. React Deployment and Service:
+   - Deploy the React application and expose it as a service.
+5. Additional Kubernetes Features
+1. Horizontal Pod Autoscaler (HPA):
+   - Implement HPA for the Flask deployment to scale based on CPU utilization.
+2. NetworkPolicies:
+   - Define NetworkPolicies to restrict traffic between pods.
+Instructions
+1. Set up Minikube:
+   - Start a Minikube cluster.
+2. Build Docker Images:
+   - Build the Docker images for Flask and React applications using Minikube’s Docker daemon.
+3. Apply Kubernetes Manifests:
+   - Apply all the Kubernetes manifests to deploy the applications and services.
+4. Access the Application:
+   - Use Minikube's service command to get the URL for the React application and access it in your browser.
+5. Verify Functionality:
+   - Test the application by adding data through the React frontend and verifying it through the Flask API.
+6. Monitor Scaling:
+   - Monitor the Horizontal Pod Autoscaler and observe how it scales the Flask deployment based on load.
+7. Review NetworkPolicies:
+   - Ensure that the NetworkPolicies are correctly restricting traffic between pods.

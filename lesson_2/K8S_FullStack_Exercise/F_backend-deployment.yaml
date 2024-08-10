@@ -1,0 +1,23 @@
+# 4. Deploy a Backend Server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: fullstack-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: nginx
+        ports:
+        - containerPort: 8080
+
+# kubectl apply -f F_backend-deployment.yaml        

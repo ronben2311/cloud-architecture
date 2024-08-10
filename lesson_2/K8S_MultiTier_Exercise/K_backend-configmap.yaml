@@ -1,0 +1,12 @@
+# Use ConfigMaps for Configuration
+# Create a ConfigMap for the backend server configuration.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: multi-tier-app
+data:
+  username: bXl1c2Vy
+  password: bXlwYXNZd29yZA==
+
+# K_backend-configmap.yaml

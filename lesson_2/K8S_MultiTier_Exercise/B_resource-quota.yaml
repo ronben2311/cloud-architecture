@@ -1,0 +1,15 @@
+#Set a Resource Quota
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: rq-multi-tier-app
+  namespace: multi-tier-app
+spec:
+  hard:
+    pods: "4"
+    requests.cpu: "2"
+    requests.memory: 2Gi
+    limits.cpu: "4"
+    limits.memory: 2Gi
+    
+  # kubectl apply -f B_resource-quota.yaml

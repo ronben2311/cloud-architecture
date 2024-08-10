@@ -1,0 +1,29 @@
+# Deploy a Backend Server
+# Deploy the backend server with environment variables configured to connect to the Redis cache and ensure it has two replicas.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: multi-tier-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: multitier-backend-image:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: REDIS_HOST
+          value: "redis"
+        - name: REDIS_PORT
+          value: "6379"
+
+# kubectl apply -f E_backend-deployment.yaml

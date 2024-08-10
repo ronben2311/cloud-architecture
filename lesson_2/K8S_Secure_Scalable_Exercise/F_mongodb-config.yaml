@@ -1,0 +1,10 @@
+# ConfigMap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mongodb-config
+  namespace: secure-app
+data:
+  database-name: mydatabase
+
+# kubectl apply -f F_mongodb-config.yaml

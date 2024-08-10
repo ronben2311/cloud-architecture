@@ -1,0 +1,26 @@
+# 5. Deploy a Frontend Server
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: fullstack-app
+spec:
+  replicas: 3 #Ensure the frontend server has three replicas.
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: nginx
+        env:
+        - name: BACKEND_URL
+          value: http://backend:8080   # Deploy the frontend server with environment variables configured to connect to the backend server.
+        ports:
+        - containerPort: 80
+
+# kubectl apply -f G_frontend-deployment.yaml

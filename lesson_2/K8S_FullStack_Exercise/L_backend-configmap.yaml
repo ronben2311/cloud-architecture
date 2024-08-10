@@ -1,0 +1,11 @@
+# 7. Use ConfigMaps for Configuration
+# Create a ConfigMap for the backend server configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-configmap
+  namespace: fullstack-app
+data:
+  SOME_CONFIG_KEY: "some-value"
+
+#kubectl apply -f L_backend-configmap.yaml

@@ -1,0 +1,7 @@
+# Create a Namespace
+# Create a namespace called secure-app to isolate the resources.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: secure-app
+# kubectl apply -f A_namespace.yaml

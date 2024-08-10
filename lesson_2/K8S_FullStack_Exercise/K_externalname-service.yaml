@@ -1,0 +1,11 @@
+# Create an ExternalName service to map an external DNS name
+apiVersion: v1
+kind: Service
+metadata:
+  name: external-service
+  namespace: fullstack-app
+spec:
+  type: ExternalName
+  externalName: external.example.com
+
+# kubectl apply -f K_externalname-service.yaml

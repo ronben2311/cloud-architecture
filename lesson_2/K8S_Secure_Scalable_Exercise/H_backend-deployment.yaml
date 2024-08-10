@@ -1,0 +1,39 @@
+# Deploy a Backend Server
+# Deploy the backend server with environment variables configured to connect to the MongoDB database and ensure the backend server has three replicas with readiness and liveness probes.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: secure-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: your-backend-image
+        ports:
+        - containerPort: 3000
+        env:
+        - name: MONGODB_URI
+          value: mongodb://ronen:ronenb@mongodb:27017/mydatabase
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 3000
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 3000
+          initialDelaySeconds: 3
+          periodSeconds: 3
+
+#kubectl apply -f H_backend-deployment.yaml          

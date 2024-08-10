@@ -1,0 +1,16 @@
+# Set a Resource Quota
+# Set a resource quota for the namespace to limit resource usage
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: resource-quota
+  namespace: secure-app
+spec:
+  hard:
+    pods: "4"
+    requests.cpu: "2"
+    requests.memory: "2Gi"
+    limits.cpu: "4"
+    limits.memory: "4Gi"
+
+ # kubectl apply -f B_resource-quota.yaml 

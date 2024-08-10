@@ -1,0 +1,32 @@
+# Create a ConfigMap for Redis configuration and deploy Redis.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: redis
+  namespace: multi-tier-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: redis
+  template:
+    metadata:
+      labels:
+        app: redis
+    spec:
+      containers:
+      - name: redis
+        image: redis:latest
+        ports:
+        - containerPort: 6379
+        volumeMounts:
+        - name: redis-config
+          mountPath: /usr/local/etc/redis/redis.conf
+          subPath: redis.conf
+      volumes:
+      - name: redis-config
+        configMap:
+          name: redis-config
+
+
+# D_redis-deployment.yaml          

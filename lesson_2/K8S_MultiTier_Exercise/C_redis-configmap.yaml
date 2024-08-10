@@ -1,0 +1,13 @@
+# 3: Deploy a Redis Cache
+# Create a ConfigMap for Redis configuration and deploy Redis.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: redis-config
+  namespace: multi-tier-app
+data:
+  redis.conf: |
+    maxmemory 2mb
+    maxmemory-policy allkeys-lru
+
+# C_redis-configmap.yaml

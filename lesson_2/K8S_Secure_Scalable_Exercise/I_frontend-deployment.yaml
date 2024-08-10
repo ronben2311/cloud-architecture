@@ -1,0 +1,42 @@
+# Deploy a Backend Server
+# - Deploy the frontend server with environment variables configured to connect to the backend server.
+# - Ensure the frontend server has three replicas.
+# - Include readiness and liveness probes for health checks.
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: secure-app
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image: nginx
+        ports:
+        - containerPort: 80
+        env:
+        - name: BACKEND_URL
+          value: http://backend:3000
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /readyz
+            port: 80
+          initialDelaySeconds: 3
+          periodSeconds: 3
+
+# kubectl apply -f I_frontend-deployment.yaml

@@ -1,0 +1,7 @@
+# 1. Create a Namespace
+# Create a namespace called fullstack-app to isolate the resources.
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: fullstack-app
+# kubectl apply -f A_fullstack-app_namespace.yaml

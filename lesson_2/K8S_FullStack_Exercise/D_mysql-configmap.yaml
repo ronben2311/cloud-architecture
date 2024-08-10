@@ -1,0 +1,10 @@
+# Create a ConfigMap for MySQL database configuration
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mysql-configmap
+  namespace: fullstack-app
+data:
+  MYSQL_DATABASE: "mydatabase"
+  MYSQL_USER: "user"
+  MYSQL_PASSWORD: "password"

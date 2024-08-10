@@ -1,0 +1,6 @@
+#Create a Namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: multi-tier-app
+#kubectl apply -f A_namespace.yaml

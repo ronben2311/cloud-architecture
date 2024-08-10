@@ -1,0 +1,11 @@
+# Use ConfigMaps for Configuration
+# Create a ConfigMap for the backend server configuration.
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+  namespace: secure-app
+data:
+  config-key: config-value
+
+  # kubectl apply -f N_backend-config.yaml
