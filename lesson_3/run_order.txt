@@ -1,6 +1,6 @@
 Instructions
 1. Set up Minikube:
-   - Start a Minikube cluster.
+   - Start a Minikube cluster. 
 minikube start
    
 2. Build Docker Images:
