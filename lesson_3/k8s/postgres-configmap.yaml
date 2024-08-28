@@ -1,0 +1,15 @@
+# 4.2 ConfigMap for PostgreSQL Initialization Script:
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: postgres-init-config
+  namespace: lessonThreeProj
+data:
+  postgres-init.sql: |
+    CREATE DATABASE lessonThreeDB;
+    \c lessonThreeDB
+    CREATE TABLE usersTbl (
+        id SERIAL PRIMARY KEY,
+        name TEXT NOT NULL
+    );
+    INSERT INTO usersTbl (name) VALUES ('first user');

@@ -1,0 +1,55 @@
+# 4.5 Deploy PostgreSQL and expose it as a service.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres
+  namespace: lessonThreeProj  # Make sure the namespace matches your Secret's namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres
+  template:
+    metadata:
+      labels:
+        app: postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:13
+        env:
+        - name: POSTGRES_DB
+          value: "lessonThreeDB"
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: lessonThree_secret  
+              key: DB_USER
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: lessonThree_secret  
+              key: DB_PASSWORD
+        volumeMounts:
+        - name: postgres-storage
+          mountPath: /var/lib/postgresql/data
+        - name: postgres-init-script
+          mountPath: /docker-entrypoint-initdb.d
+      volumes:
+      - name: postgres-storage
+        persistentVolumeClaim:
+          claimName: postgres-pvc
+      - name: postgres-init-script
+        configMap:
+          name: postgres-init-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres
+  namespace: lessonThreeProj  
+spec:
+  ports:
+  - port: 5432
+  selector:
+    app: postgres

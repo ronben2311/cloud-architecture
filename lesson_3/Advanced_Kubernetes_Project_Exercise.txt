@@ -46,10 +46,12 @@ Step-by-Step Guide
    - Set up a React application with a form to add data and a list to display data from the Flask API.
 2. Create a Dockerfile for the React application:
    - Use a multi-stage build to build the React application and serve it using Nginx.
+
 4. Creating Kubernetes Manifests
-Create a k8s directory to store all K8S manifests.
+Create a k8s directory to store all K8S manifests. 
+
 1. Namespace:
-   - Create a Namespace for the project.
+   - Create a Namespace for the project. 
 2. ConfigMap for PostgreSQL Initialization Script:
    - Store the initialization script for PostgreSQL.
 3. Secret for PostgreSQL Password:
@@ -59,7 +61,11 @@ Create a k8s directory to store all K8S manifests.
 5. PostgreSQL Deployment and Service:
    - Deploy PostgreSQL and expose it as a service.
 6. Redis Deployment and Service:
-   - Deploy Redis and expose it as a service.
+   - Deploy Redis and expose it as a service. ---
+
+continue here
+
+
 7. Flask Deployment and Service:
    - Deploy the Flask application and expose it as a service.
    - Use environment variables to connect to PostgreSQL and Redis.

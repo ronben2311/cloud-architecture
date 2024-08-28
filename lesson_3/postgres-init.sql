@@ -1,7 +1,7 @@
-CREATE DATABASE lessonFourDB;
-\c lessonFourDB
-CREATE TABLE mainTable (
+CREATE DATABASE lessonThreeDB;
+\connect lessonThreeDB
+CREATE TABLE usersTbl (
     id SERIAL PRIMARY KEY,
     name TEXT NOT NULL
 );
-INSERT INTO mainTable (name) VALUES ('Initial Data');
+INSERT INTO usersTbl (name) VALUES ('first user');

@@ -1,0 +1,32 @@
+# Deploy the React application and expose it as a service.
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: react
+  namespace: my-namespace
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: react
+  template:
+    metadata:
+      labels:
+        app: react
+    spec:
+      containers:
+      - name: react
+        image: react-image  # Replace with your React Docker image
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: react
+  namespace: my-namespace
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: react
