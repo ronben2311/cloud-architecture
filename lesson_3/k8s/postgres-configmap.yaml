@@ -3,7 +3,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: postgres-init-config
-  namespace: lessonThreeProj
+  namespace: lesson-three-proj
 data:
   postgres-init.sql: |
     CREATE DATABASE lessonThreeDB;

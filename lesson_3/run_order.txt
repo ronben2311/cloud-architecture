@@ -1,34 +1,16 @@
-Instructions
-1. Set up Minikube:
-   - Start a Minikube cluster. 
-minikube start
-   
-2. Build Docker Images:
-   - Build the Docker images for Flask and React applications using Minikube’s Docker daemon.
-
-used command prompt  -
-minikube docker-env --shell cmd | cmd
-
-3. Apply Kubernetes Manifests:
-   - Apply all the Kubernetes manifests to deploy the applications and services.
-
 kubectl apply -f namespace.yaml
+kubectl apply -f k8s/postgres-secret.yaml
+kubectl apply -f k8s/secret.yaml
+kubectl apply -f k8s/configmap.yaml
+kubectl apply -f k8s/postgres-pv-pvc.yaml
+kubectl apply -f k8s/postgres-deployment.yaml
+kubectl apply -f k8s/redis-deployment.yaml
+kubectl apply -f k8s/redis-deployment.yaml
+kubectl apply -f k8s/react-deployment.yaml
+kubectl apply -f k8s/flask-hpa.yaml
+kubectl apply -f k8s/network-policy.yaml
 
 
 
-
-
-
-
-
-
-
-
-4. Access the Application:
-   - Use Minikube's service command to get the URL for the React application and access it in your browser.
-5. Verify Functionality:
-   - Test the application by adding data through the React frontend and verifying it through the Flask API.
-6. Monitor Scaling:
-   - Monitor the Horizontal Pod Autoscaler and observe how it scales the Flask deployment based on load.
-7. Review NetworkPolicies:
-   - Ensure that the NetworkPolicies are correctly restricting traffic between pods.
+--- pods status. 
+kubectl get pods -n lesson-three-proj ---> postgress fail to run

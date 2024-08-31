@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: lessonThreeConfig
-  namespace: lessonThreeProj
+  name: lesson-three-config
+  namespace: lesson-three-proj
 data:
   DB_HOST: postgres
   DB_NAME: lessonThreeDB

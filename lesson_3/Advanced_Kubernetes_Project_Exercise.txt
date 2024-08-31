@@ -61,11 +61,7 @@ Create a k8s directory to store all K8S manifests.
 5. PostgreSQL Deployment and Service:
    - Deploy PostgreSQL and expose it as a service.
 6. Redis Deployment and Service:
-   - Deploy Redis and expose it as a service. ---
-
-continue here
-
-
+   - Deploy Redis and expose it as a service. 
 7. Flask Deployment and Service:
    - Deploy the Flask application and expose it as a service.
    - Use environment variables to connect to PostgreSQL and Redis.
