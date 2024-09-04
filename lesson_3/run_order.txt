@@ -2,8 +2,10 @@ kubectl apply -f k8s/namespace.yaml
 kubectl apply -f k8s/postgres-secret.yaml
 kubectl apply -f k8s/secret.yaml
 kubectl apply -f k8s/configmap.yaml
+kubectl apply -f k8s/postgres-configmap.yaml
 kubectl apply -f k8s/postgres-pv-pvc.yaml
 kubectl apply -f k8s/postgres-deployment.yaml
+
 kubectl apply -f k8s/flask-deployment.yaml
 kubectl apply -f k8s/redis-deployment.yaml
 kubectl apply -f k8s/redis-deployment.yaml
@@ -14,7 +16,7 @@ kubectl apply -f k8s/network-policy.yaml
 
 
 --- pods status.  
-kubectl get pods -n lesson-three-proj
+kubectl describe pod <pod-name>
 
 for logs:
 kubectl logs -l app=flask -n lesson-three-proj

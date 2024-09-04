@@ -3,7 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: postgres
-  namespace: lesson-three-proj  # Make sure the namespace matches your Secret's namespace
+  namespace: lesson-three-proj
 spec:
   replicas: 1
   selector:
@@ -19,7 +19,10 @@ spec:
         image: postgres:13
         env:
         - name: POSTGRES_DB
-          value: "lessonThreeDB"
+          valueFrom:
+            configMapKeyRef:
+              name: lesson-three-config
+              key: DB_NAME
         - name: POSTGRES_USER
           valueFrom:
             secretKeyRef:
