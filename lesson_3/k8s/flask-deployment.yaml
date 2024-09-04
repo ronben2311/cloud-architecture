@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: flask
-        image: flask-image  # Replace with your Flask Docker image
+        image: ronben2311/flask-app:latest  # Corrected image name to match Docker Hub repository
         ports:
         - containerPort: 5000
         env:
