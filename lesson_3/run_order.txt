@@ -5,9 +5,9 @@ kubectl apply -f k8s/D_configmap.yaml
 kubectl apply -f k8s/E_postgres-configmap.yaml
 kubectl apply -f k8s/F_postgres-pv-pvc.yaml
 kubectl apply -f k8s/G_postgres-deployment.yaml
+kubectl apply -f k8s/H_redis-deployment.yaml
 
-kubectl apply -f k8s/redis-deployment.yaml
-kubectl apply -f k8s/flask-deployment.yaml
+kubectl apply -f k8s/I_flask-deployment.yaml
 kubectl apply -f k8s/react-deployment.yaml
 kubectl apply -f k8s/flask-hpa.yaml
 kubectl apply -f k8s/network-policy.yaml

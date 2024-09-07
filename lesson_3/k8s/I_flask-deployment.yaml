@@ -41,6 +41,6 @@ spec:
               name: lesson-three-secret
               key: DB_PASSWORD
         - name: REDIS_HOST
-          value: "yourredisservice"  # Adjust if necessary
+          value: "redis"
         - name: REDIS_PORT
           value: "6379"
