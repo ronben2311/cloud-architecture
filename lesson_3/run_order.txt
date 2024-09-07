@@ -8,9 +8,9 @@ kubectl apply -f k8s/G_postgres-deployment.yaml
 kubectl apply -f k8s/H_redis-deployment.yaml
 
 kubectl apply -f k8s/I_flask-deployment.yaml
-kubectl apply -f k8s/react-deployment.yaml
-kubectl apply -f k8s/flask-hpa.yaml
-kubectl apply -f k8s/network-policy.yaml
+kubectl apply -f k8s/J_flask-hpa.yaml
+kubectl apply -f k8s/K_react-deployment.yaml
+kubectl apply -f k8s/L_network-policy.yaml
 
 
 
@@ -23,5 +23,9 @@ kubectl logs -l app=postgres -n lesson-three-proj
 kubectl logs -l app=react -n lesson-three-proj
 kubectl logs -l app=redis -n lesson-three-proj
 
+-- chnage to namcespace
+kubectl config set-context --current --namespace=lesson-three-proj
 
 
+docker login
+docker pull ronben2311/flask-app:latest
